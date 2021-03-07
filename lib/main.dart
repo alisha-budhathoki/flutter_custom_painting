@@ -30,7 +30,20 @@ class MyApp extends StatelessWidget {
 class FaceOutlinePainter extends CustomPainter{
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
+    //Defining a paint object
+    final paint = Paint()
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = 4.0
+    ..color = Colors.indigo;
+    // canvas.drawRect(
+    //   Rect.fromLTWH(20, 40, 100, 100),
+    //   paint
+    // );
+    canvas.drawRRect(RRect.fromRectAndRadius(Rect.fromLTWH(20, 40, 100, 100),
+    Radius.circular(20)),
+    paint);
+
+    canvas.drawOval(Rect.fromLTWH(size.width-120, 40, 100, 100), paint);
   }
 
   @override
@@ -38,5 +51,5 @@ class FaceOutlinePainter extends CustomPainter{
     // TODO: implement shouldRepaint
     throw UnimplementedError();
   }
-  
+
 }
