@@ -14,11 +14,29 @@ class MyApp extends StatelessWidget {
         body: Container(
           color: Colors.white,
           padding: EdgeInsets .symmetric(horizontal: 40, vertical: 80),
-          child: Container(
-            color: Colors.yellow,
+          child: LayoutBuilder(
+            builder: (_, constraints) =>Container(
+              width: constraints.widthConstraints().maxWidth,
+              height: constraints.heightConstraints().maxHeight,
+              color: Colors.yellow,
+              child: CustomPaint(painter  : FaceOutlinePainter(),),
+            ),
           ),
         ),
       ),
     );
   }
+}
+class FaceOutlinePainter extends CustomPainter{
+  @override
+  void paint(Canvas canvas, Size size) {
+    // TODO: implement paint
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    // TODO: implement shouldRepaint
+    throw UnimplementedError();
+  }
+  
 }
