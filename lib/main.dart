@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 void main() {
   runApp(MyApp());
 }
@@ -8,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.blue),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
@@ -19,7 +18,8 @@ class MyApp extends StatelessWidget {
               width: constraints.widthConstraints().maxWidth,
               height: constraints.heightConstraints().maxHeight,
               color: Colors.yellow,
-              child: CustomPaint(painter  : FaceOutlinePainter(),),
+              child:
+              CustomPaint(painter  : FaceOutlinePainter(),),
             ),
           ),
         ),
@@ -47,9 +47,6 @@ class FaceOutlinePainter extends CustomPainter{
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    throw UnimplementedError();
-  }
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 
 }
