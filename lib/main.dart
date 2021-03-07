@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_painting/tooltip_shape_border.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,21 +10,51 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.blue),
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Container(
-          color: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
-          child: LayoutBuilder(
-            builder: (_, constraints) => Container(
-              width: constraints.widthConstraints().maxWidth,
-              height: constraints.heightConstraints().maxHeight,
-              color: Colors.yellow,
-              child: CustomPaint(
-                painter: FaceOutlinePainter(),
+        appBar: AppBar(
+          title: Text('Instagram Like Balloon Tooltip'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                decoration: ShapeDecoration(
+                  color: Colors.green,
+                  shape: TooltipShapeBorder(),
+                  shadows: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4.0,
+                        offset: Offset(2, 2))
+                  ],
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text('Text 22 abc sdkjdskndsj',
+                      style: TextStyle(color: Colors.white)),
+                ),
               ),
-            ),
+              Tooltip(
+                message: "sakns",
+                child: Text('assnj'),
+              ),
+              Tooltip(
+                message: "Thankyou for coming to the party",
+                child: Text('null'),
+                padding: EdgeInsets.all(8),
+                decoration: ShapeDecoration(
+                  color: Colors.green,
+                  shape: TooltipShapeBorder(),
+                  shadows: [
+                    BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4.0,
+                        offset: Offset(2, 2))
+                  ],
+                ),
+              )
+            ],
           ),
         ),
       ),
